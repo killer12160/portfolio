@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aneesh Kumar Poddar | Cyber Security Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        void: '#030305',
+                        cyberBlue: '#00f0ff',
+                        neonPurple: '#b026ff',
+                        glassBg: 'rgba(255, 255, 255, 0.03)',
+                        glassBorder: 'rgba(255, 255, 255, 0.08)'
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles for Glassmorphism and scrollbars -->
+    <style>
+        html,
+        body {
+            overflow-x: clip;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        body {
+            background-color: #030305;
+            color: #ffffff;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        html {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1rem;
+        }
+
+        .glass-panel:hover {
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+
+        .bg-noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+        }
+
+        /* Marquee Animation */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .section-padding {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-padding {
+                padding-top: 8rem;
+                padding-bottom: 8rem;
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #00f0ff, #b026ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .liquid-glass {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .dark-liquid-glass {
+            background: linear-gradient(135deg, rgba(3, 3, 5, 0.85), rgba(3, 3, 5, 0.65));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .rgb-glow:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            animation: rgb-breathe 3s linear infinite;
+        }
+
+        @keyframes rgb-breathe {
+            0% {
+                box-shadow: 0 0 15px rgba(255, 0, 0, 0.5), inset 0 0 10px rgba(255, 0, 0, 0.2);
+            }
+
+            33% {
+                box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), inset 0 0 10px rgba(0, 255, 0, 0.2);
+            }
+
+            66% {
+                box-shadow: 0 0 15px rgba(0, 0, 255, 0.5), inset 0 0 10px rgba(0, 0, 255, 0.2);
+            }
+
+            100% {
+                box-shadow: 0 0 15px rgba(255, 0, 0, 0.5), inset 0 0 10px rgba(255, 0, 0, 0.2);
+            }
+        }
+
+        /* Hide Spline Watermark globally */
+        spline-viewer::part(logo) {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-cyberBlue selection:text-void">
+
+    <!-- Global Noise Overlay -->
+    <div class="bg-noise"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-4 transition-all duration-300" id="navbar">
+        <div id="nav-container"
+            class="max-w-7xl mx-auto flex justify-between items-center dark-liquid-glass px-6 py-3 rounded-full transition-colors duration-300">
+            <div class="flex items-center">
+                <img src="icon.png" alt="Logo"
+                    class="w-10 h-10 rounded-full object-cover border-2 border-cyberBlue shadow-[0_0_10px_rgba(0,240,255,0.3)] transition-transform duration-300 hover:scale-105">
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 lg:space-x-8 text-xs lg:text-sm font-medium tracking-widest uppercase">
+                <a href="#profile" class="hover:text-cyberBlue transition-colors">Profile</a>
+                <a href="#skills" class="hover:text-cyberBlue transition-colors">Skills</a>
+                <a href="#experience" class="hover:text-cyberBlue transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-cyberBlue transition-colors">Projects</a>
+                <a href="#degree" class="hover:text-cyberBlue transition-colors">Degree</a>
+                <a href="#certifications" class="hover:text-cyberBlue transition-colors">Certificates</a>
+                <a href="#contact-spline-container" class="hover:text-cyberBlue transition-colors">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn"
+                    class="text-white hover:text-cyberBlue focus:outline-none transition-colors">
+                    <svg id="menu-icon-open" class="w-6 h-6 transition-transform duration-300" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="menu-icon-close" class="w-6 h-6 hidden transition-transform duration-300" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full px-6 mt-2 transform origin-top transition-all duration-300 opacity-0 -translate-y-4">
+            <div
+                class="dark-liquid-glass flex flex-col p-4 space-y-4 text-sm font-bold tracking-widest uppercase rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.8)]">
+                <a href="#profile"
+                    class="mobile-link hover:text-cyberBlue transition-colors block w-full text-center">Profile</a>
+                <div class="w-full h-px bg-white/10"></div>
+                <a href="#skills"
+                    class="mobile-link hover:text-cyberBlue transition-colors block w-full text-center">Skills</a>
+                <div class="w-full h-px bg-white/10"></div>
+                <a href="#experience"
+                    class="mobile-link hover:text-cyberBlue transition-colors block w-full text-center">Experience</a>
+                <div class="w-full h-px bg-white/10"></div>
+                <a href="#projects"
+                    class="mobile-link hover:text-cyberBlue transition-colors block w-full text-center">Projects</a>
+                <div class="w-full h-px bg-white/10"></div>
+                <a href="#degree"
+                    class="mobile-link hover:text-cyberBlue transition-colors block w-full text-center">Degree</a>
+                <div class="w-full h-px bg-white/10"></div>
+                <a href="#certifications"
+                    class="mobile-link hover:text-cyberBlue transition-colors block w-full text-center">Certificates</a>
+                <div class="w-full h-px bg-white/10"></div>
+                <a href="#contact-spline-container"
+                    class="mobile-link hover:text-cyberBlue transition-colors block w-full text-center">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION (SPLINE SCENE) -->
+    <section id="hero-spline-container"
+        class="w-full h-[100dvh] sticky top-0 bg-black flex items-center justify-center border-b border-white/5 overflow-hidden z-0">
+        <!-- 3D Scene in Background -->
+        <div class="absolute inset-0 z-0 pointer-events-auto">
+            <script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
+            <spline-viewer class="w-full h-full"
+                url="https://prod.spline.design/UYDt5AzKxCtIrGde/scene.splinecode"></spline-viewer>
+            <!-- Watermark Cover -->
+            <div class="absolute bottom-0 right-0 w-64 h-24 bg-black z-30 pointer-events-auto" style="margin: -1px;">
+            </div>
+        </div>
+
+        <!-- Hero Content Overlay -->
+        <div
+            class="relative z-10 w-full max-w-7xl mx-auto px-6 h-full flex flex-col md:flex-row items-center justify-end md:justify-between pointer-events-none pb-12 md:pb-0">
+
+            <!-- Left Side Content -->
+            <div
+                class="max-w-md pointer-events-auto gs-hero-element w-full bg-black/40 backdrop-blur-md p-6 rounded-2xl border border-white/10 md:bg-transparent md:backdrop-blur-none md:p-0 md:rounded-none md:border-none mb-4 md:mb-0">
+                <h1
+                    class="text-3xl sm:text-4xl md:text-5xl font-black uppercase leading-tight mb-4 tracking-tight drop-shadow-lg">
+                    Secure Your Future,<br class="hidden sm:block"><span class="text-gray-300 md:text-gray-500">Starts
+                        Today.</span>
+                </h1>
+                <p
+                    class="text-xs sm:text-sm font-mono text-gray-200 md:text-gray-400 mb-8 leading-relaxed max-w-sm drop-shadow-md">
+                    Made-to-measure security solutions that fortify your infrastructure, identify vulnerabilities, and
+                    leave a stunning impression of resilience.
+                </p>
+                <a href="#contact-spline-container"
+                    class="inline-flex items-center space-x-4 bg-[#111]/80 backdrop-blur-md md:bg-[#111] border border-white/20 md:border-white/10 rounded-full px-6 py-3 hover:bg-white/5 hover:border-cyberBlue/50 transition-all duration-300 group shadow-lg">
+                    <span
+                        class="text-xs font-bold tracking-widest text-gray-200 md:text-gray-400 group-hover:text-white uppercase drop-shadow-md">Unlock
+                        Your Upgrade</span>
+                    <div class="w-2.5 h-2.5 rounded-full bg-cyberBlue shadow-[0_0_10px_#00f0ff] animate-pulse"></div>
+                </a>
+            </div>
+
+            <!-- Right Side Content -->
+            <div
+                class="max-w-xs self-end pb-12 pointer-events-auto gs-hero-element hidden md:block text-right md:text-left">
+                <div class="text-xl font-light tracking-widest text-gray-500 mb-2 font-mono">/ROOT.ACCESS</div>
+                <p class="text-xs font-mono text-gray-400 leading-relaxed opacity-70">
+                    Breach the perimeter. Analyze the payload. Secure the core. Exploiting vulnerabilities today to
+                    engineer the impenetrable architectures of tomorrow.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Bottom gradient to blend with next section -->
+        <div
+            class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#030305] to-transparent z-10 pointer-events-none">
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT WRAPPER FOR OVERLAP EFFECT -->
+    <main class="relative z-10 bg-[#030305] shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">
+
+        <!-- 2. PROFILE SECTION -->
+        <section id="profile" class="section-padding relative">
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyberBlue/10 blur-[120px] rounded-full pointer-events-none">
+            </div>
+            <div class="max-w-4xl mx-auto px-6 text-center mouse-parallax" data-speed="15">
+                <h2 class="text-cyberBlue text-sm font-bold tracking-[0.3em] uppercase mb-6 gs-reveal">System Intro</h2>
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-8 gs-reveal">
+                    A proactive Pentester with strong <span class="gradient-text">cybersecurity fundamentals</span>.
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto gs-reveal">
+                    Passionate about identifying vulnerabilities and strengthening system defenses. Strong analytical
+                    mindset with attention to detail and collaborative problem-solving approach.
+                </p>
+            </div>
+        </section>
+
+        <!-- 3. SKILLS SECTION -->
+        <section id="skills" class="section-padding relative">
+            <div
+                class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent">
+            </div>
+            <div class="max-w-7xl mx-auto px-6 mouse-parallax" data-speed="10">
+                <h2 class="text-cyberBlue text-sm font-bold tracking-[0.3em] uppercase mb-12 gs-reveal">Core
+                    Architecture</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Skill Card -->
+                    <div class="glass-panel p-8 gs-card transform transition-transform duration-500">
+                        <div class="h-12 w-12 rounded-full bg-cyberBlue/10 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-cyberBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Networking</h3>
+                        <p class="text-gray-400">Deep understanding of TCP/IP, DHCP, DNS, and VLAN configurations.</p>
+                    </div>
+                    <!-- Skill Card -->
+                    <div class="glass-panel p-8 gs-card transform transition-transform duration-500">
+                        <div class="h-12 w-12 rounded-full bg-neonPurple/10 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-neonPurple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Web App Security</h3>
+                        <p class="text-gray-400">Proficient with Burp Suite, OWASP Top 10, and Metasploit payload
+                            delivery.</p>
+                    </div>
+                    <!-- Skill Card -->
+                    <div class="glass-panel p-8 gs-card transform transition-transform duration-500">
+                        <div class="h-12 w-12 rounded-full bg-cyberBlue/10 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-cyberBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Ethical Hacking</h3>
+                        <p class="text-gray-400">Expertise in Nmap scanning, Metasploit exploitation, and Wireshark
+                            traffic analysis.</p>
+                    </div>
+                    <!-- Skill Card -->
+                    <div class="glass-panel p-8 gs-card transform transition-transform duration-500">
+                        <div class="h-12 w-12 rounded-full bg-neonPurple/10 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-neonPurple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Python scripting</h3>
+                        <p class="text-gray-400">Automation and data analysis using NumPy, pandas, matplotlib, and
+                            Flask.</p>
+                    </div>
+                    <!-- Skill Card -->
+                    <div class="glass-panel p-8 gs-card transform transition-transform duration-500">
+                        <div class="h-12 w-12 rounded-full bg-cyberBlue/10 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-cyberBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Linux / OS</h3>
+                        <p class="text-gray-400">Fluent in Kali Linux, RHEL, and advanced shell scripting techniques.
+                        </p>
+                    </div>
+                    <!-- Skill Card -->
+                    <div class="glass-panel p-8 gs-card transform transition-transform duration-500">
+                        <div class="h-12 w-12 rounded-full bg-neonPurple/10 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-neonPurple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Digital Forensics</h3>
+                        <p class="text-gray-400">Deep investigation using Autopsy, FTK Imager, and Magnet Axiom.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. TOOLS MARQUEE -->
+        <section id="tools" class="py-12 border-y border-white/5 bg-white/[0.01] overflow-hidden">
+            <div class="marquee-container w-full relative">
+                <div
+                    class="absolute inset-0 w-full h-full z-10 pointer-events-none bg-gradient-to-r from-void via-transparent to-void">
+                </div>
+                <div
+                    class="marquee-content text-4xl md:text-6xl font-black uppercase tracking-widest opacity-20 flex whitespace-nowrap">
+                    <span class="mx-8">Nmap</span> • <span class="mx-8">Dirsearch</span> • <span
+                        class="mx-8">Metasploit</span> • <span class="mx-8">Autopsy</span> • <span class="mx-8">FTK
+                        Imager</span> • <span class="mx-8">SQLMap</span> • <span class="mx-8">WPScan</span> • <span
+                        class="mx-8">Hydra</span> • <span class="mx-8">Wireshark</span> • <span class="mx-8">Burp
+                        Suite</span> • <span class="mx-8">Magnet Axiom</span> • <span class="mx-8">DH HackBar</span> •
+                    <!-- Duplicate for seamless loop -->
+                    <span class="mx-8">Nmap</span> • <span class="mx-8">Dirsearch</span> • <span
+                        class="mx-8">Metasploit</span> • <span class="mx-8">Autopsy</span> • <span class="mx-8">FTK
+                        Imager</span> • <span class="mx-8">SQLMap</span> • <span class="mx-8">WPScan</span> • <span
+                        class="mx-8">Hydra</span> • <span class="mx-8">Wireshark</span> • <span class="mx-8">Burp
+                        Suite</span> • <span class="mx-8">Magnet Axiom</span> • <span class="mx-8">DH HackBar</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. EXPERIENCE & EDUCATION -->
+        <section id="experience" class="section-padding relative">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 mouse-parallax" data-speed="8">
+
+                <!-- Experience -->
+                <div>
+                    <h2 class="text-cyberBlue text-sm font-bold tracking-[0.3em] uppercase mb-12 gs-reveal">Experience
+                        Log</h2>
+                    <div class="relative pl-8 border-l border-white/10 space-y-12">
+                        <div class="relative gs-reveal">
+                            <div
+                                class="absolute -left-[37px] top-1 h-4 w-4 rounded-full bg-cyberBlue border-4 border-void">
+                            </div>
+                            <h3 class="text-2xl font-bold mb-1">Penetration Tester Intern</h3>
+                            <div class="text-cyberBlue font-medium mb-3">Deltaware Solutions Pvt. Ltd.</div>
+                            <div class="text-sm text-gray-500 mb-4 tracking-widest uppercase">Aug 2025 – Oct 2025
+                                (Remote)</div>
+                            <p class="text-gray-400">Conducted vulnerability assessments and penetration testing on
+                                diverse systems. Documented findings and provided actionable remediation strategies.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div>
+                    <h2 class="text-neonPurple text-sm font-bold tracking-[0.3em] uppercase mb-12 gs-reveal">Academic
+                        Array</h2>
+                    <div class="relative pl-8 border-l border-white/10 space-y-10">
+                        <div class="relative gs-reveal">
+                            <div
+                                class="absolute -left-[37px] top-1 h-4 w-4 rounded-full bg-neonPurple border-4 border-void">
+                            </div>
+                            <h3 class="text-xl font-bold mb-1">MCA</h3>
+                            <div class="text-gray-400">Amity University Online</div>
+                            <div class="text-sm text-neonPurple mt-1">2026 – Present</div>
+                        </div>
+                        <div class="relative gs-reveal">
+                            <div
+                                class="absolute -left-[37px] top-1 h-4 w-4 rounded-full bg-white/20 border-4 border-void">
+                            </div>
+                            <h3 class="text-xl font-bold mb-1">Cyber Security Diploma</h3>
+                            <div class="text-gray-400">Craw Security</div>
+                            <div class="text-sm text-gray-500 mt-1">2023 – 2025</div>
+                        </div>
+                        <div class="relative gs-reveal">
+                            <div
+                                class="absolute -left-[37px] top-1 h-4 w-4 rounded-full bg-white/20 border-4 border-void">
+                            </div>
+                            <h3 class="text-xl font-bold mb-1">BCA</h3>
+                            <div class="text-gray-400">Amity University Online</div>
+                            <div class="text-sm text-gray-500 mt-1">2022 – 2025</div>
+                        </div>
+                        <div class="relative gs-reveal">
+                            <div
+                                class="absolute -left-[37px] top-1 h-4 w-4 rounded-full bg-white/20 border-4 border-void">
+                            </div>
+                            <h3 class="text-xl font-bold mb-1">Software Developer Course</h3>
+                            <div class="text-gray-400">Oxford Software Institute</div>
+                            <div class="text-sm text-gray-500 mt-1">2022 – 2023</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6. PROJECTS SHOWCASE -->
+        <section id="projects" class="section-padding relative bg-white/[0.01]">
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-neonPurple/5 blur-[150px] rounded-full pointer-events-none">
+            </div>
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-neonPurple text-sm font-bold tracking-[0.3em] uppercase mb-16 text-center gs-reveal">
+                    Projects</h2>
+
+                <div class="space-y-24">
+                    <!-- Project 1 -->
+                    <div class="group relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center gs-project">
+                        <div class="order-2 lg:order-1 relative z-10">
+                            <h3 class="text-4xl font-bold mb-4 group-hover:text-cyberBlue transition-colors">NEXA</h3>
+                            <div class="text-xl text-gray-300 mb-6">Intelligent Port Scanner</div>
+                            <div class="glass-panel p-6 mb-8 text-gray-400">
+                                Python-based async scanner with Nmap enrichment and AI analysis. Built to rapidly
+                                identify open ports and provide contextual vulnerability enrichment on the fly.
+                            </div>
+                            <div class="flex gap-4 mb-8">
+                                <span
+                                    class="px-4 py-1 rounded-full border border-cyberBlue/30 text-cyberBlue text-sm">Python</span>
+                                <span
+                                    class="px-4 py-1 rounded-full border border-cyberBlue/30 text-cyberBlue text-sm">Nmap</span>
+                                <span
+                                    class="px-4 py-1 rounded-full border border-cyberBlue/30 text-cyberBlue text-sm">AI</span>
+                            </div>
+                            <a href="https://github.com/killer12160/NEXA-intelligent-port-scanner.git" target="_blank"
+                                class="inline-flex items-center space-x-2 text-white hover:text-cyberBlue transition-colors border-b border-cyberBlue pb-1">
+                                <span>View Tool</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="order-1 lg:order-2 overflow-hidden rounded-2xl glass-panel relative aspect-video">
+                            <div
+                                class="absolute inset-0 bg-cyberBlue/20 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10">
+                            </div>
+                            <div class="gs-parallax-wrap absolute -inset-y-[15%] inset-x-0 w-full h-[130%]">
+                                <img src="project_nexa.png" alt="NEXA Port Scanner"
+                                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="group relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center gs-project">
+                        <div class="overflow-hidden rounded-2xl glass-panel relative aspect-video">
+                            <div
+                                class="absolute inset-0 bg-neonPurple/20 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10">
+                            </div>
+                            <div class="gs-parallax-wrap absolute -inset-y-[15%] inset-x-0 w-full h-[130%]">
+                                <img src="project_hashsmasher.png" alt="HashSmasher"
+                                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="text-4xl font-bold mb-4 group-hover:text-neonPurple transition-colors">
+                                HashSmasher</h3>
+                            <div class="text-xl text-gray-300 mb-6">GPU Hash Cracker</div>
+                            <div class="glass-panel p-6 mb-8 text-gray-400">
+                                Rust + Python GPU/CPU cracking tool with OpenCL acceleration. Designed for rapid
+                                cryptographic hash resolution in penetration testing environments.
+                            </div>
+                            <div class="flex gap-4 mb-8">
+                                <span
+                                    class="px-4 py-1 rounded-full border border-neonPurple/30 text-neonPurple text-sm">Rust</span>
+                                <span
+                                    class="px-4 py-1 rounded-full border border-neonPurple/30 text-neonPurple text-sm">Python</span>
+                                <span
+                                    class="px-4 py-1 rounded-full border border-neonPurple/30 text-neonPurple text-sm">OpenCL</span>
+                            </div>
+                            <a href="https://github.com/killer12160/hashsmasher.git" target="_blank"
+                                class="inline-flex items-center space-x-2 text-white hover:text-neonPurple transition-colors border-b border-neonPurple pb-1">
+                                <span>View Tool</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="group relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center gs-project">
+                        <div class="order-2 lg:order-1 relative z-10">
+                            <h3 class="text-4xl font-bold mb-4 group-hover:text-cyberBlue transition-colors">BULLS_EYE
+                            </h3>
+                            <div class="text-xl text-gray-300 mb-6">Botnet Framework</div>
+                            <div class="glass-panel p-6 mb-8 text-gray-400">
+                                Python-based botnet simulation tool for cybersecurity research. Maps interconnected
+                                infected nodes pinging back to a central command center.
+                            </div>
+                            <div class="flex gap-4 mb-8">
+                                <span
+                                    class="px-4 py-1 rounded-full border border-cyberBlue/30 text-cyberBlue text-sm">Python</span>
+                                <span
+                                    class="px-4 py-1 rounded-full border border-cyberBlue/30 text-cyberBlue text-sm">Networking</span>
+                                <span
+                                    class="px-4 py-1 rounded-full border border-cyberBlue/30 text-cyberBlue text-sm">Research</span>
+                            </div>
+                            <a href="https://github.com/killer12160/BULLS_EYE.git" target="_blank"
+                                class="inline-flex items-center space-x-2 text-white hover:text-cyberBlue transition-colors border-b border-cyberBlue pb-1">
+                                <span>View Tool</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="order-1 lg:order-2 overflow-hidden rounded-2xl glass-panel relative aspect-video">
+                            <div
+                                class="absolute inset-0 bg-cyberBlue/20 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10">
+                            </div>
+                            <div class="gs-parallax-wrap absolute -inset-y-[15%] inset-x-0 w-full h-[130%]">
+                                <img src="project_bullseye.png" alt="BULLS_EYE Framework"
+                                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 6.5 DEGREE -->
+        <section id="degree" class="section-padding overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                    <!-- Text Content -->
+                    <div class="w-full md:w-1/3 z-10 gs-reveal">
+                        <h2 class="text-4xl md:text-6xl font-bold mb-4">BCA <span class="gradient-text">Degree</span>
+                        </h2>
+                        <p class="text-gray-400 text-lg">Bachelor of Computer Applications, Amity University.</p>
+                    </div>
+
+                    <!-- Image Composition -->
+                    <div
+                        class="w-full md:w-2/3 relative min-h-[420px] md:min-h-[520px] gs-reveal flex items-center justify-center perspective-[2000px]">
+                        <!-- Graduation Image (Background) -->
+                        <div
+                            class="absolute w-[80%] md:w-[60%] right-0 md:right-10 top-10 md:top-5 rotate-6 shadow-[0_0_30px_rgba(0,0,0,0.8)] rounded-xl overflow-hidden border border-white/10 hover:rotate-2 hover:scale-105 transition-all duration-500 z-0 opacity-80 hover:opacity-100">
+                            <img src="degree/IMG_20251207_165209315~2.jpg" alt="Graduation"
+                                class="w-full h-auto object-cover">
+                        </div>
+
+                        <!-- Degree Image (Foreground, Tilted) -->
+                        <div
+                            class="absolute w-[75%] md:w-[55%] -left-4 md:-left-4 -bottom-8 md:-bottom-24 -rotate-6 shadow-[0_0_40px_rgba(0,240,255,0.2)] rounded-xl overflow-hidden border border-cyberBlue/30 hover:-rotate-2 hover:scale-105 transition-all duration-500 z-10 glass-panel">
+                            <img src="degree/bca_degree.png" alt="BCA Degree" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CERTIFICATIONS -->
+        <section id="certifications" class="section-padding">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-center text-3xl md:text-5xl font-bold mb-16 gs-reveal">Verified <span
+                        class="gradient-text">Credentials</span></h2>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="certs-grid">
+                    <!-- Row 1 -->
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/Aneesh EH.pdf">
+                        <div class="text-cyberBlue font-bold mb-2 group-hover:scale-105 transition-transform">CEH</div>
+                        <div class="text-xs text-gray-400">Certified Ethical Hacker</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/Aneesh CHFI.pdf">
+                        <div class="text-neonPurple font-bold mb-2 group-hover:scale-105 transition-transform">CHFI
+                        </div>
+                        <div class="text-xs text-gray-400">Computer Hacking Forensic Investigator</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/Aneesh APT.pdf">
+                        <div class="text-white font-bold mb-2 group-hover:scale-105 transition-transform">APT</div>
+                        <div class="text-xs text-gray-400">Advanced Pentesting</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/Aneesh_Kumar_End_Point_Security_0.pdf">
+                        <div class="text-cyberBlue font-bold mb-2 group-hover:scale-105 transition-transform">End Point
+                        </div>
+                        <div class="text-xs text-gray-400">Security</div>
+                    </div>
+                    <!-- Row 2 -->
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/Aneesh_Kumar_poddar_AWS_Security_0.pdf">
+                        <div class="text-neonPurple font-bold mb-2 group-hover:scale-105 transition-transform">AWS</div>
+                        <div class="text-xs text-gray-400">Security Specialty</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/Aneesh_Kumar_AWS_Associate_0.pdf">
+                        <div class="text-white font-bold mb-2 group-hover:scale-105 transition-transform">AWS</div>
+                        <div class="text-xs text-gray-400">Associate</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate.pdf">
+                        <div class="text-cyberBlue font-bold mb-2 group-hover:scale-105 transition-transform">OCI AI
+                        </div>
+                        <div class="text-xs text-gray-400">Foundations Associate</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/Aneesh_Kumar_poddar_Internet_of_Things_Pentesting_0.pdf">
+                        <div class="text-neonPurple font-bold mb-2 group-hover:scale-105 transition-transform">IoT</div>
+                        <div class="text-xs text-gray-400">Pentesting</div>
+                    </div>
+                    <!-- Row 3 -->
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/Aneesh Kumar Poddar webapp.pdf">
+                        <div class="text-white font-bold mb-2 group-hover:scale-105 transition-transform">Web App</div>
+                        <div class="text-xs text-gray-400">Pentesting</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/Aneesh Kumar Poddar mobileapp.pdf">
+                        <div class="text-cyberBlue font-bold mb-2 group-hover:scale-105 transition-transform">Mobile App
+                        </div>
+                        <div class="text-xs text-gray-400">Pentesting</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/Aneesh Networking.pdf">
+                        <div class="text-neonPurple font-bold mb-2 group-hover:scale-105 transition-transform">
+                            Networking</div>
+                        <div class="text-xs text-gray-400">Fundamentals</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/Aneesh Kumar Poddar (Linux).pdf">
+                        <div class="text-white font-bold mb-2 group-hover:scale-105 transition-transform">Linux</div>
+                        <div class="text-xs text-gray-400">Administration</div>
+                    </div>
+                    <!-- Row 4 -->
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/Aneesh Python.pdf">
+                        <div class="text-cyberBlue font-bold mb-2 group-hover:scale-105 transition-transform">Python
+                        </div>
+                        <div class="text-xs text-gray-400">Programming</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/softdevcertificate.jpg">
+                        <div class="text-neonPurple font-bold mb-2 group-hover:scale-105 transition-transform">Software
+                            Dev</div>
+                        <div class="text-xs text-gray-400">Oxford Certification</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/linuxcertificate.jpg">
+                        <div class="text-white font-bold mb-2 group-hover:scale-105 transition-transform">Linux</div>
+                        <div class="text-xs text-gray-400">Oxford Certification</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/Aneesh_Kumar_Poddar_1year_diploma.pdf">
+                        <div class="text-cyberBlue font-bold mb-2 group-hover:scale-105 transition-transform">Craw
+                            Security</div>
+                        <div class="text-xs text-gray-400">1 Year Diploma</div>
+                    </div>
+                    <!-- Row 5 -->
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/Deltaware_Internship.pdf">
+                        <div class="text-neonPurple font-bold mb-2 group-hover:scale-105 transition-transform">Deltaware
+                        </div>
+                        <div class="text-xs text-gray-400">Internship</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/IIT Jodhpur.pdf">
+                        <div class="text-white font-bold mb-2 group-hover:scale-105 transition-transform">IIT Jodhpur
+                        </div>
+                        <div class="text-xs text-gray-400">Hackathon</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/amity_Certificate.pdf">
+                        <div class="text-cyberBlue font-bold mb-2 group-hover:scale-105 transition-transform">Amity
+                        </div>
+                        <div class="text-xs text-gray-400">Life Skills</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/Amity__Acing_Your_Interview.pdf">
+                        <div class="text-neonPurple font-bold mb-2 group-hover:scale-105 transition-transform">Amity
+                        </div>
+                        <div class="text-xs text-gray-400">Acing Your Interview</div>
+                    </div>
+                    <!-- Row 6 -->
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/bb02a557-3fa4-452d-b468-339b75b70cc4.png">
+                        <div class="text-white font-bold mb-2 group-hover:scale-105 transition-transform">Malware
+                            Analysis</div>
+                        <div class="text-xs text-gray-400">EC-Council</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/efa3794e-5d3e-46d3-a6a0-bd3d20b7ae5f.png">
+                        <div class="text-cyberBlue font-bold mb-2 group-hover:scale-105 transition-transform">OWASP
+                            Pentesting</div>
+                        <div class="text-xs text-gray-400">EC-Council</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
+                        data-cert="certificates/ff5ef8a0-8f2c-4bd0-9bd2-7c60818684e3.png">
+                        <div class="text-neonPurple font-bold mb-2 group-hover:scale-105 transition-transform">Kali
+                            Linux Pentesting</div>
+                        <div class="text-xs text-gray-400">EC-Council</div>
+                    </div>
+                    <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group flex flex-col justify-center items-center"
+                        data-cert="linkedin">
+                        <div
+                            class="text-gray-300 font-bold mb-2 group-hover:scale-105 transition-transform flex items-center gap-2">
+                            View All
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </div>
+                        <div class="text-xs text-gray-500">LinkedIn Profile</div>
+                    </div>
+
+                    <!-- Hidden Viewer -->
+                    <div id="cert-viewer"
+                        class="col-span-full hidden w-full h-[500px] md:h-[700px] glass-panel rounded-2xl overflow-hidden mt-4 relative transition-all duration-500 origin-top opacity-0 scale-y-0 bg-white/[0.02]">
+                        <div class="absolute inset-0 bg-[#030305]/80 backdrop-blur-md flex items-center justify-center z-0"
+                            id="cert-loader">
+                            <div
+                                class="w-8 h-8 border-4 border-cyberBlue border-t-transparent rounded-full animate-spin">
+                            </div>
+                        </div>
+                        <button id="close-viewer"
+                            class="absolute top-4 right-4 z-20 w-10 h-10 bg-black/50 hover:bg-neonPurple/80 rounded-full flex items-center justify-center text-white backdrop-blur-md transition-colors border border-white/10 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                        <iframe id="cert-iframe" src="" class="w-full h-full border-none relative z-10 hidden"
+                            onload="document.getElementById('cert-loader').classList.add('hidden');"></iframe>
+                        <img id="cert-image" src="" class="w-full h-full object-contain relative z-10 hidden p-8"
+                            onload="document.getElementById('cert-loader').classList.add('hidden');" alt="Certificate">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 8. CONTACT SECTION (SPLINE SCENE) -->
+    <section id="contact-spline-container"
+        class="w-full h-[100dvh] relative bg-black border-t border-white/5 overflow-hidden flex items-center justify-center">
+        <!-- 3D Scene in Background -->
+        <div class="absolute inset-0 z-0 pointer-events-auto md:translate-x-1/4">
+            <spline-viewer class="w-full h-full"
+                url="https://prod.spline.design/IpCtqheNbEuUpFl4/scene.splinecode"></spline-viewer>
+            <!-- Watermark Cover -->
+            <div class="absolute bottom-0 right-0 w-64 h-24 bg-black z-30 pointer-events-auto" style="margin: -1px;">
+            </div>
+        </div>
+
+        <!-- Contact Card -->
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-6 flex justify-start pointer-events-none">
+            <div
+                class="liquid-glass p-6 md:p-8 rounded-[2rem] w-full max-w-3xl pointer-events-auto transition-all duration-300 rgb-glow flex flex-col md:flex-row items-center gap-8 md:gap-12 gs-contact-card">
+
+                <!-- Image Left -->
+                <div
+                    class="w-full md:w-2/5 shrink-0 rounded-2xl overflow-hidden border-2 border-white/10 shadow-[0_0_30px_rgba(0,240,255,0.2)] relative aspect-[4/5]">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-[#030305]/80 via-transparent to-transparent z-10 pointer-events-none">
+                    </div>
+                    <div class="gs-parallax-wrap absolute -inset-y-[15%] inset-x-0 w-full h-[130%]">
+                        <img src="ChatGPT Image Apr 29, 2026, 03_56_08 PM.png" alt="Aneesh Poddar"
+                            class="w-full h-full object-cover relative z-0">
+                    </div>
+                </div>
+
+                <!-- Info Right -->
+                <div class="w-full md:w-3/5 flex flex-col justify-center">
+                    <div class="mb-8 text-center md:text-left">
+                        <h3 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-2">Aneesh Poddar</h3>
+                        <p class="text-cyberBlue font-mono text-sm tracking-widest uppercase">Penetration Tester</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <a href="tel:+919311090320"
+                            class="flex items-center space-x-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/5 group">
+                            <div
+                                class="p-2 bg-neonPurple/20 rounded-lg group-hover:bg-neonPurple/30 transition-colors shrink-0">
+                                <svg class="w-5 h-5 text-neonPurple" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span class="text-gray-200 font-mono tracking-wider text-sm">+91-9311090320</span>
+                        </a>
+
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aneeshpoddar63@gmail.com" target="_blank"
+                            class="flex items-center space-x-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/5 group overflow-hidden">
+                            <div
+                                class="p-2 bg-cyberBlue/20 rounded-lg group-hover:bg-cyberBlue/30 transition-colors shrink-0">
+                                <svg class="w-5 h-5 text-cyberBlue" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span
+                                class="text-gray-200 font-mono text-sm tracking-wider truncate">aneeshpoddar63@gmail.com</span>
+                        </a>
+
+                        <a href="https://linkedin.com/in/aneesh-poddar-189aa328b" target="_blank"
+                            class="flex items-center space-x-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/5 group">
+                            <div class="p-2 bg-white/20 rounded-lg group-hover:bg-white/30 transition-colors shrink-0">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                </svg>
+                            </div>
+                            <span class="text-gray-200 font-mono tracking-wider text-sm">LinkedIn Profile</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Navbar blur effect on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            const navContainer = document.getElementById('nav-container');
+            if (window.scrollY > 50) {
+                nav.classList.add('backdrop-blur-md');
+            } else {
+                nav.classList.remove('backdrop-blur-md');
+            }
+        });
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIconOpen = document.getElementById('menu-icon-open');
+        const menuIconClose = document.getElementById('menu-icon-close');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if (mobileMenuBtn && mobileMenu) {
+            const toggleMenu = () => {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                if (isOpen) {
+                    mobileMenu.classList.remove('opacity-100', 'translate-y-0');
+                    mobileMenu.classList.add('opacity-0', '-translate-y-4');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
+                    menuIconOpen.classList.remove('hidden');
+                    menuIconClose.classList.add('hidden');
+                } else {
+                    mobileMenu.classList.remove('hidden');
+                    // Trigger reflow
+                    void mobileMenu.offsetWidth;
+                    mobileMenu.classList.remove('opacity-0', '-translate-y-4');
+                    mobileMenu.classList.add('opacity-100', 'translate-y-0');
+                    menuIconOpen.classList.add('hidden');
+                    menuIconClose.classList.remove('hidden');
+                }
+            };
+
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        toggleMenu();
+                    }
+                });
+            });
+        }
+
+        // Hero Elements Reveal
+        gsap.fromTo('.gs-hero-element',
+            { y: 30, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+                stagger: 0.2,
+                ease: "power3.out",
+                delay: 0.5
+            }
+        );
+
+        // Cinematic Text Reveals
+        gsap.utils.toArray('.gs-reveal').forEach(element => {
+            gsap.fromTo(element,
+                { y: 50, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                    }
+                }
+            );
+        });
+
+        // Skills Card Stagger
+        gsap.fromTo('.gs-card',
+            { y: 50, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                stagger: 0.1,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: "#skills",
+                    start: "top 70%"
+                }
+            }
+        );
+
+        // Certifications Grid Stagger
+        gsap.fromTo('.gs-cert',
+            { scale: 0.9, opacity: 0 },
+            {
+                scale: 1,
+                opacity: 1,
+                duration: 0.5,
+                stagger: 0.05,
+                ease: "back.out(1.7)",
+                scrollTrigger: {
+                    trigger: "#certifications",
+                    start: "top 75%"
+                }
+            }
+        );
+
+        // Project Parallax effects
+        gsap.utils.toArray('.gs-project').forEach(project => {
+            const parallaxWrap = project.querySelector('.gs-parallax-wrap');
+
+            // Image parallax
+            if (parallaxWrap) {
+                gsap.fromTo(parallaxWrap,
+                    { yPercent: -10 },
+                    {
+                        yPercent: 10,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: project,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: true
+                        }
+                    }
+                );
+            }
+
+            // Project reveal
+            gsap.fromTo(project,
+                { opacity: 0, y: 100 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: project,
+                        start: "top 80%"
+                    }
+                }
+            );
+        });
+
+        // Mouse move effect for glass cards (subtle 3d tilt)
+        document.querySelectorAll('.gs-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((y - centerY) / centerY) * -5;
+                const rotateY = ((x - centerX) / centerX) * 5;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`;
+            });
+        });
+        // Contact Card Animation (Copied from Projects)
+        gsap.utils.toArray('.gs-contact-card').forEach(cardElement => {
+            const parallaxWrap = cardElement.querySelector('.gs-parallax-wrap');
+
+            // Image parallax
+            if (parallaxWrap) {
+                gsap.fromTo(parallaxWrap,
+                    { yPercent: -10 },
+                    {
+                        yPercent: 10,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: cardElement,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: true
+                        }
+                    }
+                );
+            }
+
+            // Card reveal
+            gsap.fromTo(cardElement,
+                { opacity: 0, y: 100 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: cardElement,
+                        start: "top 80%"
+                    }
+                }
+            );
+        });
+
+
+
+        // Certifications Interactive Grid Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const certCards = document.querySelectorAll('.gs-cert');
+            const viewer = document.getElementById('cert-viewer');
+            const iframe = document.getElementById('cert-iframe');
+            const certImage = document.getElementById('cert-image');
+            const closeBtn = document.getElementById('close-viewer');
+            const loader = document.getElementById('cert-loader');
+
+            certCards.forEach((card, index) => {
+                card.addEventListener('click', () => {
+                    // If clicking the already active card, close it instead of reloading
+                    if (card.classList.contains('border-cyberBlue') && !viewer.classList.contains('hidden')) {
+                        closeBtn.click();
+                        return;
+                    }
+
+                    // Determine row length based on window width
+                    const columns = window.innerWidth >= 768 ? 4 : 2;
+                    const currentRow = Math.floor(index / columns);
+                    const lastIndexInRow = Math.min((currentRow + 1) * columns - 1, certCards.length - 1);
+
+                    const lastCardInRow = certCards[lastIndexInRow];
+
+                    // Move viewer to sit after the last card in the current row
+                    lastCardInRow.after(viewer);
+
+                    // Update source
+                    const file = card.getAttribute('data-cert');
+                    if (file === 'linkedin') {
+                        window.open('https://www.linkedin.com/in/aneesh-poddar-189aa328b/details/certifications/', '_blank');
+                        return;
+                    }
+
+                    const isImage = file.endsWith('.png') || file.endsWith('.jpg');
+                    const activeElement = isImage ? certImage : iframe;
+                    const inactiveElement = isImage ? iframe : certImage;
+
+                    if (activeElement.getAttribute('src') !== file) {
+                        loader.classList.remove('hidden');
+                        inactiveElement.classList.add('hidden');
+                        inactiveElement.src = '';
+
+                        activeElement.src = file;
+                        activeElement.classList.remove('hidden');
+                    }
+
+                    // Show viewer
+                    viewer.classList.remove('hidden');
+                    // Add slight delay for animation to trigger after display block
+                    setTimeout(() => {
+                        viewer.classList.remove('opacity-0', 'scale-y-0');
+                        viewer.classList.add('opacity-100', 'scale-y-100');
+                    }, 50);
+
+                    // Highlight selected card
+                    certCards.forEach(c => {
+                        c.classList.remove('border-cyberBlue', 'bg-white/[0.1]', 'border');
+                    });
+                    card.classList.add('border-cyberBlue', 'bg-white/[0.1]', 'border');
+
+                    // Scroll to viewer smoothly
+                    setTimeout(() => {
+                        viewer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 300);
+                });
+            });
+
+            closeBtn.addEventListener('click', () => {
+                viewer.classList.remove('opacity-100', 'scale-y-100');
+                viewer.classList.add('opacity-0', 'scale-y-0');
+                setTimeout(() => {
+                    viewer.classList.add('hidden');
+                    iframe.src = '';
+                    certImage.src = '';
+                    iframe.classList.add('hidden');
+                    certImage.classList.add('hidden');
+                }, 500); // match transition duration
+                certCards.forEach(c => {
+                    c.classList.remove('border-cyberBlue', 'bg-white/[0.1]', 'border');
+                });
+            });
+        });
+
+        // Smooth scroll without changing URL hash
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Soft Mouse Parallax with Tilt
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 2; // -1 to 1
+            const y = (e.clientY / window.innerHeight - 0.5) * 2; // -1 to 1
+
+            gsap.to('.mouse-parallax', {
+                x: (index, target) => {
+                    const speed = target.getAttribute('data-speed') || 10;
+                    return x * speed;
+                },
+                y: (index, target) => {
+                    const speed = target.getAttribute('data-speed') || 10;
+                    return y * speed;
+                },
+                rotationY: (index, target) => {
+                    const speed = target.getAttribute('data-speed') || 10;
+                    return x * (speed / 3); // subtle tilt
+                },
+                rotationX: (index, target) => {
+                    const speed = target.getAttribute('data-speed') || 10;
+                    return -y * (speed / 3); // subtle tilt
+                },
+                transformPerspective: 1000,
+                duration: 1.5,
+                ease: "power2.out"
+            });
+        });
+    </script>
+</body>
+
+</html>
