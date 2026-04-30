@@ -186,7 +186,7 @@
         <div id="nav-container"
             class="max-w-7xl mx-auto flex justify-between items-center dark-liquid-glass px-6 py-3 rounded-full transition-colors duration-300">
             <div class="flex items-center">
-                <img src="icon.png" alt="Logo"
+                <img src="icon.webp" alt="Logo"
                     class="w-10 h-10 rounded-full object-cover border-2 border-cyberBlue shadow-[0_0_10px_rgba(0,240,255,0.3)] transition-transform duration-300 hover:scale-105">
             </div>
 
@@ -311,7 +311,7 @@
         <!-- 2. PROFILE SECTION -->
         <section id="profile" class="section-padding relative">
             <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyberBlue/10 blur-[120px] rounded-full pointer-events-none">
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyberBlue/10 blur-[40px] md:blur-[120px] rounded-full pointer-events-none">
             </div>
             <div class="max-w-4xl mx-auto px-6 text-center mouse-parallax" data-speed="15">
                 <h2 class="text-cyberBlue text-sm font-bold tracking-[0.3em] uppercase mb-6 gs-reveal">System Intro</h2>
@@ -505,7 +505,7 @@
         <!-- 6. PROJECTS SHOWCASE -->
         <section id="projects" class="section-padding relative bg-white/[0.01]">
             <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-neonPurple/5 blur-[150px] rounded-full pointer-events-none">
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-neonPurple/5 blur-[40px] md:blur-[150px] rounded-full pointer-events-none">
             </div>
             <div class="max-w-7xl mx-auto px-6">
                 <h2 class="text-neonPurple text-sm font-bold tracking-[0.3em] uppercase mb-16 text-center gs-reveal">
@@ -543,7 +543,7 @@
                                 class="absolute inset-0 bg-cyberBlue/20 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10">
                             </div>
                             <div class="gs-parallax-wrap absolute -inset-y-[15%] inset-x-0 w-full h-[130%]">
-                                <img src="project_nexa.png" alt="NEXA Port Scanner"
+                                <img src="project_nexa.webp" alt="NEXA Port Scanner"
                                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
                             </div>
                         </div>
@@ -556,7 +556,7 @@
                                 class="absolute inset-0 bg-neonPurple/20 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10">
                             </div>
                             <div class="gs-parallax-wrap absolute -inset-y-[15%] inset-x-0 w-full h-[130%]">
-                                <img src="project_hashsmasher.png" alt="HashSmasher"
+                                <img src="project_hashsmasher.webp" alt="HashSmasher"
                                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
                             </div>
                         </div>
@@ -619,7 +619,7 @@
                                 class="absolute inset-0 bg-cyberBlue/20 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10">
                             </div>
                             <div class="gs-parallax-wrap absolute -inset-y-[15%] inset-x-0 w-full h-[130%]">
-                                <img src="project_bullseye.png" alt="BULLS_EYE Framework"
+                                <img src="project_bullseye.webp" alt="BULLS_EYE Framework"
                                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
                             </div>
                         </div>
@@ -866,7 +866,7 @@
                         class="absolute inset-0 bg-gradient-to-t from-[#030305]/80 via-transparent to-transparent z-10 pointer-events-none">
                     </div>
                     <div class="gs-parallax-wrap absolute -inset-y-[15%] inset-x-0 w-full h-[130%]">
-                        <img src="ChatGPT Image Apr 29, 2026, 03_56_08 PM.png" alt="Aneesh Poddar"
+                        <img src="card.webp" alt="Aneesh Poddar"
                             class="w-full h-full object-cover relative z-0">
                     </div>
                 </div>
@@ -984,6 +984,7 @@
             });
         }
 
+        if (window.innerWidth > 768) {
         // Hero Elements Reveal
         gsap.fromTo('.gs-hero-element',
             { y: 30, opacity: 0 },
@@ -1086,6 +1087,7 @@
         // Mouse move effect for glass cards (subtle 3d tilt)
         document.querySelectorAll('.gs-card').forEach(card => {
             card.addEventListener('mousemove', e => {
+                if (window.innerWidth <= 768) return; // Disable on mobile
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
@@ -1139,8 +1141,7 @@
                 }
             );
         });
-
-
+        } // End desktop-only GSAP animations
 
         // Certifications Interactive Grid Logic
         document.addEventListener('DOMContentLoaded', () => {
@@ -1244,6 +1245,7 @@
 
         // Soft Mouse Parallax with Tilt
         document.addEventListener('mousemove', (e) => {
+            if (window.innerWidth <= 768) return; // Disable on mobile
             const x = (e.clientX / window.innerWidth - 0.5) * 2; // -1 to 1
             const y = (e.clientY / window.innerHeight - 0.5) * 2; // -1 to 1
 
