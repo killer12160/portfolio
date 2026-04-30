@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aneesh Kumar Poddar | Cyber Security Portfolio</title>
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -34,8 +29,6 @@
             }
         }
     </script>
-
-    <!-- Custom Styles for Glassmorphism and scrollbars -->
     <style>
         html,
         body {
@@ -43,25 +36,17 @@
             width: 100%;
             max-width: 100%;
         }
-
         body {
             background-color: #030305;
             color: #ffffff;
         }
-
-        /* Hide scrollbar for Chrome, Safari and Opera */
         ::-webkit-scrollbar {
             display: none;
         }
-
-        /* Hide scrollbar for IE, Edge and Firefox */
         html {
             -ms-overflow-style: none;
-            /* IE and Edge */
             scrollbar-width: none;
-            /* Firefox */
         }
-
         .glass-panel {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(16px);
@@ -69,16 +54,13 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 1rem;
         }
-
         .glass-panel:hover {
             border: 1px solid rgba(0, 240, 255, 0.3);
             box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
         }
-
         .text-glow {
             text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
         }
-
         .bg-noise {
             position: fixed;
             top: 0;
@@ -90,46 +72,37 @@
             opacity: 0.03;
             background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
         }
-
-        /* Marquee Animation */
         .marquee-container {
             overflow: hidden;
             white-space: nowrap;
         }
-
         .marquee-content {
             display: inline-block;
             animation: marquee 20s linear infinite;
         }
-
         @keyframes marquee {
             0% {
                 transform: translateX(0);
             }
-
             100% {
                 transform: translateX(-50%);
             }
         }
-
         .section-padding {
             padding-top: 5rem;
             padding-bottom: 5rem;
         }
-
         @media (min-width: 768px) {
             .section-padding {
                 padding-top: 8rem;
                 padding-bottom: 8rem;
             }
         }
-
         .gradient-text {
             background: linear-gradient(90deg, #00f0ff, #b026ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .liquid-glass {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
             backdrop-filter: blur(20px);
@@ -137,7 +110,6 @@
             border: 1px solid rgba(255, 255, 255, 0.18);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
-
         .dark-liquid-glass {
             background: linear-gradient(135deg, rgba(3, 3, 5, 0.85), rgba(3, 3, 5, 0.65));
             backdrop-filter: blur(20px);
@@ -145,43 +117,31 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
         }
-
         .rgb-glow:hover {
             border-color: rgba(255, 255, 255, 0.6);
             animation: rgb-breathe 3s linear infinite;
         }
-
         @keyframes rgb-breathe {
             0% {
                 box-shadow: 0 0 15px rgba(255, 0, 0, 0.5), inset 0 0 10px rgba(255, 0, 0, 0.2);
             }
-
             33% {
                 box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), inset 0 0 10px rgba(0, 255, 0, 0.2);
             }
-
             66% {
                 box-shadow: 0 0 15px rgba(0, 0, 255, 0.5), inset 0 0 10px rgba(0, 0, 255, 0.2);
             }
-
             100% {
                 box-shadow: 0 0 15px rgba(255, 0, 0, 0.5), inset 0 0 10px rgba(255, 0, 0, 0.2);
             }
         }
-
-        /* Hide Spline Watermark globally */
         spline-viewer::part(logo) {
             display: none !important;
         }
     </style>
 </head>
-
 <body class="antialiased selection:bg-cyberBlue selection:text-void">
-
-    <!-- Global Noise Overlay -->
     <div class="bg-noise"></div>
-
-    <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 px-6 py-4 transition-all duration-300" id="navbar">
         <div id="nav-container"
             class="max-w-7xl mx-auto flex justify-between items-center dark-liquid-glass px-6 py-3 rounded-full transition-colors duration-300">
@@ -189,8 +149,6 @@
                 <img src="icon.webp" alt="Logo"
                     class="w-10 h-10 rounded-full object-cover border-2 border-cyberBlue shadow-[0_0_10px_rgba(0,240,255,0.3)] transition-transform duration-300 hover:scale-105">
             </div>
-
-            <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-6 lg:space-x-8 text-xs lg:text-sm font-medium tracking-widest uppercase">
                 <a href="#profile" class="hover:text-cyberBlue transition-colors">Profile</a>
                 <a href="#skills" class="hover:text-cyberBlue transition-colors">Skills</a>
@@ -200,8 +158,6 @@
                 <a href="#certifications" class="hover:text-cyberBlue transition-colors">Certificates</a>
                 <a href="#contact-spline-container" class="hover:text-cyberBlue transition-colors">Contact</a>
             </div>
-
-            <!-- Mobile Menu Button -->
             <div class="md:hidden flex items-center">
                 <button id="mobile-menu-btn"
                     class="text-white hover:text-cyberBlue focus:outline-none transition-colors">
@@ -218,8 +174,6 @@
                 </button>
             </div>
         </div>
-
-        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu"
             class="hidden md:hidden absolute top-full left-0 w-full px-6 mt-2 transform origin-top transition-all duration-300 opacity-0 -translate-y-4">
             <div
@@ -247,25 +201,17 @@
             </div>
         </div>
     </nav>
-
-    <!-- 1. HERO SECTION (SPLINE SCENE) -->
     <section id="hero-spline-container"
         class="w-full h-[100dvh] sticky top-0 bg-black flex items-center justify-center border-b border-white/5 overflow-hidden z-0">
-        <!-- 3D Scene in Background -->
         <div class="absolute inset-0 z-0 pointer-events-auto">
             <script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
             <spline-viewer class="w-full h-full"
                 url="https://prod.spline.design/UYDt5AzKxCtIrGde/scene.splinecode"></spline-viewer>
-            <!-- Watermark Cover -->
             <div class="absolute bottom-0 right-0 w-64 h-24 bg-black z-30 pointer-events-auto" style="margin: -1px;">
             </div>
         </div>
-
-        <!-- Hero Content Overlay -->
         <div
             class="relative z-10 w-full max-w-7xl mx-auto px-6 h-full flex flex-col md:flex-row items-center justify-end md:justify-between pointer-events-none pb-12 md:pb-0">
-
-            <!-- Left Side Content -->
             <div
                 class="max-w-md pointer-events-auto gs-hero-element w-full bg-black/40 backdrop-blur-md p-6 rounded-2xl border border-white/10 md:bg-transparent md:backdrop-blur-none md:p-0 md:rounded-none md:border-none mb-4 md:mb-0">
                 <h1
@@ -286,8 +232,6 @@
                     <div class="w-2.5 h-2.5 rounded-full bg-cyberBlue shadow-[0_0_10px_#00f0ff] animate-pulse"></div>
                 </a>
             </div>
-
-            <!-- Right Side Content -->
             <div
                 class="max-w-xs self-end pb-12 pointer-events-auto gs-hero-element hidden md:block text-right md:text-left">
                 <div class="text-xl font-light tracking-widest text-gray-500 mb-2 font-mono">/ROOT.ACCESS</div>
@@ -296,19 +240,12 @@
                     engineer the impenetrable architectures of tomorrow.
                 </p>
             </div>
-
         </div>
-
-        <!-- Bottom gradient to blend with next section -->
         <div
             class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#030305] to-transparent z-10 pointer-events-none">
         </div>
     </section>
-
-    <!-- MAIN CONTENT WRAPPER FOR OVERLAP EFFECT -->
     <main class="relative z-10 bg-[#030305] shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">
-
-        <!-- 2. PROFILE SECTION -->
         <section id="profile" class="section-padding relative">
             <div
                 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyberBlue/10 blur-[40px] md:blur-[120px] rounded-full pointer-events-none">
@@ -324,8 +261,6 @@
                 </p>
             </div>
         </section>
-
-        <!-- 3. SKILLS SECTION -->
         <section id="skills" class="section-padding relative">
             <div
                 class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent">
@@ -333,9 +268,7 @@
             <div class="max-w-7xl mx-auto px-6 mouse-parallax" data-speed="10">
                 <h2 class="text-cyberBlue text-sm font-bold tracking-[0.3em] uppercase mb-12 gs-reveal">Core
                     Architecture</h2>
-
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Skill Card -->
                     <div class="glass-panel p-8 gs-card transform transition-transform duration-500">
                         <div class="h-12 w-12 rounded-full bg-cyberBlue/10 flex items-center justify-center mb-6">
                             <svg class="w-6 h-6 text-cyberBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -347,7 +280,6 @@
                         <h3 class="text-2xl font-bold mb-4">Networking</h3>
                         <p class="text-gray-400">Deep understanding of TCP/IP, DHCP, DNS, and VLAN configurations.</p>
                     </div>
-                    <!-- Skill Card -->
                     <div class="glass-panel p-8 gs-card transform transition-transform duration-500">
                         <div class="h-12 w-12 rounded-full bg-neonPurple/10 flex items-center justify-center mb-6">
                             <svg class="w-6 h-6 text-neonPurple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -360,7 +292,6 @@
                         <p class="text-gray-400">Proficient with Burp Suite, OWASP Top 10, and Metasploit payload
                             delivery.</p>
                     </div>
-                    <!-- Skill Card -->
                     <div class="glass-panel p-8 gs-card transform transition-transform duration-500">
                         <div class="h-12 w-12 rounded-full bg-cyberBlue/10 flex items-center justify-center mb-6">
                             <svg class="w-6 h-6 text-cyberBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -373,7 +304,6 @@
                         <p class="text-gray-400">Expertise in Nmap scanning, Metasploit exploitation, and Wireshark
                             traffic analysis.</p>
                     </div>
-                    <!-- Skill Card -->
                     <div class="glass-panel p-8 gs-card transform transition-transform duration-500">
                         <div class="h-12 w-12 rounded-full bg-neonPurple/10 flex items-center justify-center mb-6">
                             <svg class="w-6 h-6 text-neonPurple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -385,7 +315,6 @@
                         <p class="text-gray-400">Automation and data analysis using NumPy, pandas, matplotlib, and
                             Flask.</p>
                     </div>
-                    <!-- Skill Card -->
                     <div class="glass-panel p-8 gs-card transform transition-transform duration-500">
                         <div class="h-12 w-12 rounded-full bg-cyberBlue/10 flex items-center justify-center mb-6">
                             <svg class="w-6 h-6 text-cyberBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -398,7 +327,6 @@
                         <p class="text-gray-400">Fluent in Kali Linux, RHEL, and advanced shell scripting techniques.
                         </p>
                     </div>
-                    <!-- Skill Card -->
                     <div class="glass-panel p-8 gs-card transform transition-transform duration-500">
                         <div class="h-12 w-12 rounded-full bg-neonPurple/10 flex items-center justify-center mb-6">
                             <svg class="w-6 h-6 text-neonPurple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -412,8 +340,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- 4. TOOLS MARQUEE -->
         <section id="tools" class="py-12 border-y border-white/5 bg-white/[0.01] overflow-hidden">
             <div class="marquee-container w-full relative">
                 <div
@@ -426,7 +352,6 @@
                         Imager</span> • <span class="mx-8">SQLMap</span> • <span class="mx-8">WPScan</span> • <span
                         class="mx-8">Hydra</span> • <span class="mx-8">Wireshark</span> • <span class="mx-8">Burp
                         Suite</span> • <span class="mx-8">Magnet Axiom</span> • <span class="mx-8">DH HackBar</span> •
-                    <!-- Duplicate for seamless loop -->
                     <span class="mx-8">Nmap</span> • <span class="mx-8">Dirsearch</span> • <span
                         class="mx-8">Metasploit</span> • <span class="mx-8">Autopsy</span> • <span class="mx-8">FTK
                         Imager</span> • <span class="mx-8">SQLMap</span> • <span class="mx-8">WPScan</span> • <span
@@ -435,12 +360,8 @@
                 </div>
             </div>
         </section>
-
-        <!-- 5. EXPERIENCE & EDUCATION -->
         <section id="experience" class="section-padding relative">
             <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 mouse-parallax" data-speed="8">
-
-                <!-- Experience -->
                 <div>
                     <h2 class="text-cyberBlue text-sm font-bold tracking-[0.3em] uppercase mb-12 gs-reveal">Experience
                         Log</h2>
@@ -458,8 +379,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Education -->
                 <div>
                     <h2 class="text-neonPurple text-sm font-bold tracking-[0.3em] uppercase mb-12 gs-reveal">Academic
                         Array</h2>
@@ -498,11 +417,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
-
-        <!-- 6. PROJECTS SHOWCASE -->
         <section id="projects" class="section-padding relative bg-white/[0.01]">
             <div
                 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-neonPurple/5 blur-[40px] md:blur-[150px] rounded-full pointer-events-none">
@@ -510,9 +426,7 @@
             <div class="max-w-7xl mx-auto px-6">
                 <h2 class="text-neonPurple text-sm font-bold tracking-[0.3em] uppercase mb-16 text-center gs-reveal">
                     Projects</h2>
-
                 <div class="space-y-24">
-                    <!-- Project 1 -->
                     <div class="group relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center gs-project">
                         <div class="order-2 lg:order-1 relative z-10">
                             <h3 class="text-4xl font-bold mb-4 group-hover:text-cyberBlue transition-colors">NEXA</h3>
@@ -548,8 +462,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Project 2 -->
                     <div class="group relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center gs-project">
                         <div class="overflow-hidden rounded-2xl glass-panel relative aspect-video">
                             <div
@@ -586,8 +498,6 @@
                             </a>
                         </div>
                     </div>
-
-                    <!-- Project 3 -->
                     <div class="group relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center gs-project">
                         <div class="order-2 lg:order-1 relative z-10">
                             <h3 class="text-4xl font-bold mb-4 group-hover:text-cyberBlue transition-colors">BULLS_EYE
@@ -624,33 +534,24 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
-
-        <!-- 6.5 DEGREE -->
         <section id="degree" class="section-padding overflow-hidden">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-                    <!-- Text Content -->
                     <div class="w-full md:w-1/3 z-10 gs-reveal">
                         <h2 class="text-4xl md:text-6xl font-bold mb-4">BCA <span class="gradient-text">Degree</span>
                         </h2>
                         <p class="text-gray-400 text-lg">Bachelor of Computer Applications, Amity University.</p>
                     </div>
-
-                    <!-- Image Composition -->
                     <div
                         class="w-full md:w-2/3 relative min-h-[420px] md:min-h-[520px] gs-reveal flex items-center justify-center perspective-[2000px]">
-                        <!-- Graduation Image (Background) -->
                         <div
                             class="absolute w-[80%] md:w-[60%] right-0 md:right-10 top-10 md:top-5 rotate-6 shadow-[0_0_30px_rgba(0,0,0,0.8)] rounded-xl overflow-hidden border border-white/10 hover:rotate-2 hover:scale-105 transition-all duration-500 z-0 opacity-80 hover:opacity-100">
                             <img src="degree/IMG_20251207_165209315~2.jpg" alt="Graduation"
                                 class="w-full h-auto object-cover">
                         </div>
-
-                        <!-- Degree Image (Foreground, Tilted) -->
                         <div
                             class="absolute w-[75%] md:w-[55%] -left-4 md:-left-4 -bottom-8 md:-bottom-24 -rotate-6 shadow-[0_0_40px_rgba(0,240,255,0.2)] rounded-xl overflow-hidden border border-cyberBlue/30 hover:-rotate-2 hover:scale-105 transition-all duration-500 z-10 glass-panel">
                             <img src="degree/bca_degree.png" alt="BCA Degree" class="w-full h-auto object-cover">
@@ -659,15 +560,11 @@
                 </div>
             </div>
         </section>
-
-        <!-- 7. CERTIFICATIONS -->
         <section id="certifications" class="section-padding">
             <div class="max-w-7xl mx-auto px-6">
                 <h2 class="text-center text-3xl md:text-5xl font-bold mb-16 gs-reveal">Verified <span
                         class="gradient-text">Credentials</span></h2>
-
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="certs-grid">
-                    <!-- Row 1 -->
                     <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
                         data-cert="certificates/Aneesh EH.pdf">
                         <div class="text-cyberBlue font-bold mb-2 group-hover:scale-105 transition-transform">CEH</div>
@@ -690,7 +587,6 @@
                         </div>
                         <div class="text-xs text-gray-400">Security</div>
                     </div>
-                    <!-- Row 2 -->
                     <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
                         data-cert="certificates/Aneesh_Kumar_poddar_AWS_Security_0.pdf">
                         <div class="text-neonPurple font-bold mb-2 group-hover:scale-105 transition-transform">AWS</div>
@@ -712,7 +608,6 @@
                         <div class="text-neonPurple font-bold mb-2 group-hover:scale-105 transition-transform">IoT</div>
                         <div class="text-xs text-gray-400">Pentesting</div>
                     </div>
-                    <!-- Row 3 -->
                     <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
                         data-cert="certificates/Aneesh Kumar Poddar webapp.pdf">
                         <div class="text-white font-bold mb-2 group-hover:scale-105 transition-transform">Web App</div>
@@ -735,7 +630,6 @@
                         <div class="text-white font-bold mb-2 group-hover:scale-105 transition-transform">Linux</div>
                         <div class="text-xs text-gray-400">Administration</div>
                     </div>
-                    <!-- Row 4 -->
                     <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
                         data-cert="certificates/Aneesh Python.pdf">
                         <div class="text-cyberBlue font-bold mb-2 group-hover:scale-105 transition-transform">Python
@@ -759,7 +653,6 @@
                             Security</div>
                         <div class="text-xs text-gray-400">1 Year Diploma</div>
                     </div>
-                    <!-- Row 5 -->
                     <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
                         data-cert="certificates/Deltaware_Internship.pdf">
                         <div class="text-neonPurple font-bold mb-2 group-hover:scale-105 transition-transform">Deltaware
@@ -784,7 +677,6 @@
                         </div>
                         <div class="text-xs text-gray-400">Acing Your Interview</div>
                     </div>
-                    <!-- Row 6 -->
                     <div class="glass-panel p-6 text-center hover:bg-white/[0.05] transition-all duration-300 gs-cert cursor-pointer group"
                         data-cert="certificates/bb02a557-3fa4-452d-b468-339b75b70cc4.png">
                         <div class="text-white font-bold mb-2 group-hover:scale-105 transition-transform">Malware
@@ -815,8 +707,6 @@
                         </div>
                         <div class="text-xs text-gray-500">LinkedIn Profile</div>
                     </div>
-
-                    <!-- Hidden Viewer -->
                     <div id="cert-viewer"
                         class="col-span-full hidden w-full h-[500px] md:h-[700px] glass-panel rounded-2xl overflow-hidden mt-4 relative transition-all duration-500 origin-top opacity-0 scale-y-0 bg-white/[0.02]">
                         <div class="absolute inset-0 bg-[#030305]/80 backdrop-blur-md flex items-center justify-center z-0"
@@ -841,25 +731,17 @@
             </div>
         </section>
     </main>
-
-    <!-- 8. CONTACT SECTION (SPLINE SCENE) -->
     <section id="contact-spline-container"
         class="w-full h-[100dvh] relative bg-black border-t border-white/5 overflow-hidden flex items-center justify-center">
-        <!-- 3D Scene in Background -->
         <div class="absolute inset-0 z-0 pointer-events-auto md:translate-x-1/4">
             <spline-viewer class="w-full h-full"
                 url="https://prod.spline.design/IpCtqheNbEuUpFl4/scene.splinecode"></spline-viewer>
-            <!-- Watermark Cover -->
             <div class="absolute bottom-0 right-0 w-64 h-24 bg-black z-30 pointer-events-auto" style="margin: -1px;">
             </div>
         </div>
-
-        <!-- Contact Card -->
         <div class="relative z-10 w-full max-w-7xl mx-auto px-6 flex justify-start pointer-events-none">
             <div
                 class="liquid-glass p-6 md:p-8 rounded-[2rem] w-full max-w-3xl pointer-events-auto transition-all duration-300 rgb-glow flex flex-col md:flex-row items-center gap-8 md:gap-12 gs-contact-card">
-
-                <!-- Image Left -->
                 <div
                     class="w-full md:w-2/5 shrink-0 rounded-2xl overflow-hidden border-2 border-white/10 shadow-[0_0_30px_rgba(0,240,255,0.2)] relative aspect-[4/5]">
                     <div
@@ -870,14 +752,11 @@
                             class="w-full h-full object-cover relative z-0">
                     </div>
                 </div>
-
-                <!-- Info Right -->
                 <div class="w-full md:w-3/5 flex flex-col justify-center">
                     <div class="mb-8 text-center md:text-left">
                         <h3 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-2">Aneesh Poddar</h3>
                         <p class="text-cyberBlue font-mono text-sm tracking-widest uppercase">Penetration Tester</p>
                     </div>
-
                     <div class="space-y-4">
                         <a href="tel:+919311090320"
                             class="flex items-center space-x-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/5 group">
@@ -892,7 +771,6 @@
                             </div>
                             <span class="text-gray-200 font-mono tracking-wider text-sm">+91-9311090320</span>
                         </a>
-
                         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aneeshpoddar63@gmail.com" target="_blank"
                             class="flex items-center space-x-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/5 group overflow-hidden">
                             <div
@@ -907,7 +785,6 @@
                             <span
                                 class="text-gray-200 font-mono text-sm tracking-wider truncate">aneeshpoddar63@gmail.com</span>
                         </a>
-
                         <a href="https://linkedin.com/in/aneesh-poddar-189aa328b" target="_blank"
                             class="flex items-center space-x-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/5 group">
                             <div class="p-2 bg-white/20 rounded-lg group-hover:bg-white/30 transition-colors shrink-0">
@@ -920,20 +797,13 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-
-    <!-- GSAP Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
     <script>
-        // Register ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
-
-        // Navbar blur effect on scroll
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             const navContainer = document.getElementById('nav-container');
@@ -943,14 +813,11 @@
                 nav.classList.remove('backdrop-blur-md');
             }
         });
-
-        // Mobile Menu Toggle Logic
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIconOpen = document.getElementById('menu-icon-open');
         const menuIconClose = document.getElementById('menu-icon-close');
         const mobileLinks = document.querySelectorAll('.mobile-link');
-
         if (mobileMenuBtn && mobileMenu) {
             const toggleMenu = () => {
                 const isOpen = !mobileMenu.classList.contains('hidden');
@@ -964,7 +831,6 @@
                     menuIconClose.classList.add('hidden');
                 } else {
                     mobileMenu.classList.remove('hidden');
-                    // Trigger reflow
                     void mobileMenu.offsetWidth;
                     mobileMenu.classList.remove('opacity-0', '-translate-y-4');
                     mobileMenu.classList.add('opacity-100', 'translate-y-0');
@@ -972,9 +838,7 @@
                     menuIconClose.classList.remove('hidden');
                 }
             };
-
             mobileMenuBtn.addEventListener('click', toggleMenu);
-
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     if (!mobileMenu.classList.contains('hidden')) {
@@ -983,9 +847,7 @@
                 });
             });
         }
-
         if (window.innerWidth > 768) {
-        // Hero Elements Reveal
         gsap.fromTo('.gs-hero-element',
             { y: 30, opacity: 0 },
             {
@@ -997,8 +859,6 @@
                 delay: 0.5
             }
         );
-
-        // Cinematic Text Reveals
         gsap.utils.toArray('.gs-reveal').forEach(element => {
             gsap.fromTo(element,
                 { y: 50, opacity: 0 },
@@ -1014,8 +874,6 @@
                 }
             );
         });
-
-        // Skills Card Stagger
         gsap.fromTo('.gs-card',
             { y: 50, opacity: 0 },
             {
@@ -1030,8 +888,6 @@
                 }
             }
         );
-
-        // Certifications Grid Stagger
         gsap.fromTo('.gs-cert',
             { scale: 0.9, opacity: 0 },
             {
@@ -1046,12 +902,8 @@
                 }
             }
         );
-
-        // Project Parallax effects
         gsap.utils.toArray('.gs-project').forEach(project => {
             const parallaxWrap = project.querySelector('.gs-parallax-wrap');
-
-            // Image parallax
             if (parallaxWrap) {
                 gsap.fromTo(parallaxWrap,
                     { yPercent: -10 },
@@ -1067,8 +919,6 @@
                     }
                 );
             }
-
-            // Project reveal
             gsap.fromTo(project,
                 { opacity: 0, y: 100 },
                 {
@@ -1083,33 +933,24 @@
                 }
             );
         });
-
-        // Mouse move effect for glass cards (subtle 3d tilt)
         document.querySelectorAll('.gs-card').forEach(card => {
             card.addEventListener('mousemove', e => {
-                if (window.innerWidth <= 768) return; // Disable on mobile
+                if (window.innerWidth <= 768) return; 
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-
                 const rotateX = ((y - centerY) / centerY) * -5;
                 const rotateY = ((x - centerX) / centerX) * 5;
-
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
             });
-
             card.addEventListener('mouseleave', () => {
                 card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`;
             });
         });
-        // Contact Card Animation (Copied from Projects)
         gsap.utils.toArray('.gs-contact-card').forEach(cardElement => {
             const parallaxWrap = cardElement.querySelector('.gs-parallax-wrap');
-
-            // Image parallax
             if (parallaxWrap) {
                 gsap.fromTo(parallaxWrap,
                     { yPercent: -10 },
@@ -1125,8 +966,6 @@
                     }
                 );
             }
-
-            // Card reveal
             gsap.fromTo(cardElement,
                 { opacity: 0, y: 100 },
                 {
@@ -1141,9 +980,7 @@
                 }
             );
         });
-        } // End desktop-only GSAP animations
-
-        // Certifications Interactive Grid Logic
+        } 
         document.addEventListener('DOMContentLoaded', () => {
             const certCards = document.querySelectorAll('.gs-cert');
             const viewer = document.getElementById('cert-viewer');
@@ -1151,66 +988,46 @@
             const certImage = document.getElementById('cert-image');
             const closeBtn = document.getElementById('close-viewer');
             const loader = document.getElementById('cert-loader');
-
             certCards.forEach((card, index) => {
                 card.addEventListener('click', () => {
-                    // If clicking the already active card, close it instead of reloading
                     if (card.classList.contains('border-cyberBlue') && !viewer.classList.contains('hidden')) {
                         closeBtn.click();
                         return;
                     }
-
-                    // Determine row length based on window width
                     const columns = window.innerWidth >= 768 ? 4 : 2;
                     const currentRow = Math.floor(index / columns);
                     const lastIndexInRow = Math.min((currentRow + 1) * columns - 1, certCards.length - 1);
-
                     const lastCardInRow = certCards[lastIndexInRow];
-
-                    // Move viewer to sit after the last card in the current row
                     lastCardInRow.after(viewer);
-
-                    // Update source
                     const file = card.getAttribute('data-cert');
                     if (file === 'linkedin') {
                         window.open('https://www.linkedin.com/in/aneesh-poddar-189aa328b/details/certifications/', '_blank');
                         return;
                     }
-
                     const isImage = file.endsWith('.png') || file.endsWith('.jpg');
                     const activeElement = isImage ? certImage : iframe;
                     const inactiveElement = isImage ? iframe : certImage;
-
                     if (activeElement.getAttribute('src') !== file) {
                         loader.classList.remove('hidden');
                         inactiveElement.classList.add('hidden');
                         inactiveElement.src = '';
-
                         activeElement.src = file;
                         activeElement.classList.remove('hidden');
                     }
-
-                    // Show viewer
                     viewer.classList.remove('hidden');
-                    // Add slight delay for animation to trigger after display block
                     setTimeout(() => {
                         viewer.classList.remove('opacity-0', 'scale-y-0');
                         viewer.classList.add('opacity-100', 'scale-y-100');
                     }, 50);
-
-                    // Highlight selected card
                     certCards.forEach(c => {
                         c.classList.remove('border-cyberBlue', 'bg-white/[0.1]', 'border');
                     });
                     card.classList.add('border-cyberBlue', 'bg-white/[0.1]', 'border');
-
-                    // Scroll to viewer smoothly
                     setTimeout(() => {
                         viewer.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }, 300);
                 });
             });
-
             closeBtn.addEventListener('click', () => {
                 viewer.classList.remove('opacity-100', 'scale-y-100');
                 viewer.classList.add('opacity-0', 'scale-y-0');
@@ -1220,20 +1037,17 @@
                     certImage.src = '';
                     iframe.classList.add('hidden');
                     certImage.classList.add('hidden');
-                }, 500); // match transition duration
+                }, 500); 
                 certCards.forEach(c => {
                     c.classList.remove('border-cyberBlue', 'bg-white/[0.1]', 'border');
                 });
             });
         });
-
-        // Smooth scroll without changing URL hash
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     targetElement.scrollIntoView({
@@ -1242,13 +1056,10 @@
                 }
             });
         });
-
-        // Soft Mouse Parallax with Tilt
         document.addEventListener('mousemove', (e) => {
-            if (window.innerWidth <= 768) return; // Disable on mobile
-            const x = (e.clientX / window.innerWidth - 0.5) * 2; // -1 to 1
-            const y = (e.clientY / window.innerHeight - 0.5) * 2; // -1 to 1
-
+            if (window.innerWidth <= 768) return; 
+            const x = (e.clientX / window.innerWidth - 0.5) * 2; 
+            const y = (e.clientY / window.innerHeight - 0.5) * 2; 
             gsap.to('.mouse-parallax', {
                 x: (index, target) => {
                     const speed = target.getAttribute('data-speed') || 10;
@@ -1260,11 +1071,11 @@
                 },
                 rotationY: (index, target) => {
                     const speed = target.getAttribute('data-speed') || 10;
-                    return x * (speed / 3); // subtle tilt
+                    return x * (speed / 3); 
                 },
                 rotationX: (index, target) => {
                     const speed = target.getAttribute('data-speed') || 10;
-                    return -y * (speed / 3); // subtle tilt
+                    return -y * (speed / 3); 
                 },
                 transformPerspective: 1000,
                 duration: 1.5,
@@ -1273,5 +1084,4 @@
         });
     </script>
 </body>
-
 </html>
