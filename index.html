@@ -722,11 +722,19 @@
                                     d="M6 18L18 6M6 6l12 12"></path>
                             </svg>
                         </button>
-                        <iframe id="cert-iframe" src="" class="w-full h-full border-none relative z-10 hidden"
+                        <iframe id="cert-iframe" src="" loading="lazy" class="w-full h-full border-none relative z-10 hidden"
                             onload="document.getElementById('cert-loader').classList.add('hidden');"></iframe>
-                        <img id="cert-image" src="" class="w-full h-full object-contain relative z-10 hidden p-8"
+                        <img id="cert-image" src="" loading="lazy" class="w-full h-full object-contain relative z-10 hidden p-8"
                             onload="document.getElementById('cert-loader').classList.add('hidden');" alt="Certificate">
                     </div>
+                </div>
+                <div class="mt-12 flex justify-center w-full" id="show-more-container">
+                    <button id="show-more-certs" class="px-8 py-3 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white font-bold tracking-widest uppercase hover:text-cyberBlue hover:border-cyberBlue/50 transition-all duration-300 shadow-lg backdrop-blur-md flex items-center justify-center gap-2">
+                        <span>Show More</span>
+                        <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </section>
@@ -982,23 +990,122 @@
         });
         } 
         document.addEventListener('DOMContentLoaded', () => {
-            const certCards = document.querySelectorAll('.gs-cert');
+            const certCards = Array.from(document.querySelectorAll('.gs-cert'));
             const viewer = document.getElementById('cert-viewer');
-            const iframe = document.getElementById('cert-iframe');
+            let iframe = document.getElementById('cert-iframe');
             const certImage = document.getElementById('cert-image');
             const closeBtn = document.getElementById('close-viewer');
             const loader = document.getElementById('cert-loader');
-            certCards.forEach((card, index) => {
+            const showMoreBtn = document.getElementById('show-more-certs');
+            let isExpanded = false;
+
+            function updateCertVisibility() {
+                const isMobile = window.innerWidth < 768;
+                const visibleCount = isMobile ? 4 : 8;
+
+                certCards.forEach((card, index) => {
+                    if (isExpanded || index < visibleCount) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (showMoreBtn) {
+                    const span = showMoreBtn.querySelector('span');
+                    const svg = showMoreBtn.querySelector('svg');
+                    span.textContent = isExpanded ? 'Show Less' : 'Show More';
+                    if (isExpanded) {
+                        svg.classList.add('rotate-180');
+                    } else {
+                        svg.classList.remove('rotate-180');
+                    }
+                }
+                
+                ScrollTrigger.refresh();
+            }
+
+            if (showMoreBtn) {
+                showMoreBtn.addEventListener('click', () => {
+                    isExpanded = !isExpanded;
+                    if (isExpanded) {
+                        const isMobile = window.innerWidth < 768;
+                        const visibleCount = isMobile ? 4 : 8;
+                        const newlyVisible = certCards.slice(visibleCount);
+                        
+                        gsap.set(newlyVisible, { scale: 0.9, opacity: 0 });
+                        updateCertVisibility();
+                        
+                        gsap.to(newlyVisible, 
+                            { scale: 1, opacity: 1, duration: 0.4, stagger: 0.05, ease: "back.out(1.5)", clearProps: "all" }
+                        );
+                    } else {
+                        if (!viewer.classList.contains('hidden')) {
+                            closeBtn.click();
+                        }
+
+                        if (showMoreBtn) {
+                            const span = showMoreBtn.querySelector('span');
+                            const svg = showMoreBtn.querySelector('svg');
+                            span.textContent = 'Show More';
+                            svg.classList.remove('rotate-180');
+                        }
+
+                        const isMobile = window.innerWidth < 768;
+                        const visibleCount = isMobile ? 4 : 8;
+                        const extraVisible = certCards.slice(visibleCount).reverse();
+
+                        const certsSection = document.getElementById('certifications');
+                        const rect = certsSection.getBoundingClientRect();
+                        if (rect.top < 0) {
+                            window.scrollTo({ top: window.scrollY + rect.top - 100, behavior: 'smooth' });
+                        }
+
+                        gsap.to(extraVisible, {
+                            scale: 0.9, 
+                            opacity: 0, 
+                            duration: 0.3, 
+                            stagger: 0.02, 
+                            ease: "power2.in",
+                            onComplete: () => {
+                                if (!isExpanded) {
+                                    gsap.set(extraVisible, { clearProps: "opacity,transform" });
+                                    updateCertVisibility();
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+
+            updateCertVisibility();
+
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    if (!isExpanded) updateCertVisibility();
+                }, 200);
+            });
+
+            certCards.forEach((card) => {
                 card.addEventListener('click', () => {
                     if (card.classList.contains('border-cyberBlue') && !viewer.classList.contains('hidden')) {
                         closeBtn.click();
                         return;
                     }
+
+                    const visibleCards = certCards.filter(c => c.style.display !== 'none');
+                    const visibleIndex = visibleCards.indexOf(card);
+                    if (visibleIndex === -1) return;
+
                     const columns = window.innerWidth >= 768 ? 4 : 2;
-                    const currentRow = Math.floor(index / columns);
-                    const lastIndexInRow = Math.min((currentRow + 1) * columns - 1, certCards.length - 1);
-                    const lastCardInRow = certCards[lastIndexInRow];
+                    const currentRow = Math.floor(visibleIndex / columns);
+                    const lastIndexInRow = Math.min((currentRow + 1) * columns - 1, visibleCards.length - 1);
+                    const lastCardInRow = visibleCards[lastIndexInRow];
+
                     lastCardInRow.after(viewer);
+
                     const file = card.getAttribute('data-cert');
                     if (file === 'linkedin') {
                         window.open('https://www.linkedin.com/in/aneesh-poddar-189aa328b/details/certifications/', '_blank');
@@ -1007,13 +1114,31 @@
                     const isImage = file.endsWith('.png') || file.endsWith('.jpg');
                     const activeElement = isImage ? certImage : iframe;
                     const inactiveElement = isImage ? iframe : certImage;
+
                     if (activeElement.getAttribute('src') !== file) {
                         loader.classList.remove('hidden');
                         inactiveElement.classList.add('hidden');
-                        inactiveElement.src = '';
-                        activeElement.src = file;
-                        activeElement.classList.remove('hidden');
+                        inactiveElement.removeAttribute('src'); 
+                        
+                        // If it's a PDF, we might need to recreate the iframe to ensure clean loading
+                        if (!isImage) {
+                            const newIframe = document.createElement('iframe');
+                            newIframe.id = 'cert-iframe';
+                            newIframe.className = 'w-full h-full border-none relative z-10 hidden';
+                            newIframe.loading = 'lazy';
+                            newIframe.onload = () => {
+                                loader.classList.add('hidden');
+                                newIframe.classList.remove('hidden');
+                            };
+                            iframe.replaceWith(newIframe);
+                            iframe = newIframe;
+                            iframe.src = file;
+                        } else {
+                            activeElement.src = file;
+                            activeElement.classList.remove('hidden');
+                        }
                     }
+
                     viewer.classList.remove('hidden');
                     setTimeout(() => {
                         viewer.classList.remove('opacity-0', 'scale-y-0');
@@ -1033,9 +1158,17 @@
                 viewer.classList.add('opacity-0', 'scale-y-0');
                 setTimeout(() => {
                     viewer.classList.add('hidden');
-                    iframe.src = '';
+                    
+                    // Replace iframe completely to kill background PDF process
+                    const newIframe = document.createElement('iframe');
+                    newIframe.id = 'cert-iframe';
+                    newIframe.className = 'w-full h-full border-none relative z-10 hidden';
+                    newIframe.loading = 'lazy';
+                    newIframe.onload = () => document.getElementById('cert-loader').classList.add('hidden');
+                    iframe.replaceWith(newIframe);
+                    iframe = newIframe;
+                    
                     certImage.src = '';
-                    iframe.classList.add('hidden');
                     certImage.classList.add('hidden');
                 }, 500); 
                 certCards.forEach(c => {
